@@ -46,6 +46,41 @@ li {
   color: #008080;
 }
 
+.cart__icon {
+  color: #008080;
+  cursor: pointer;
+  font-size: 20px;  
+  padding-left: 6px;
+  transition: all 300ms ease-in-out;
+}
+
+.cart__icon--big {
+  color: #008080;
+  font-size: 32px;
+  margin-left: 28px;
+  padding-left: 20px;
+  justify-items: center;
+  border-left: 2px solid #008080;
+  transition: all 300ms ease-in-out;
+}
+
+
+.cart__icon:hover,
+.cart__icon--big:hover {
+  color: #FF7F50;
+  border-left: none;
+  transform: scale(1.2);
+}
+
+.cart__icon:active,
+.cart__icon--big:active {
+  color: #D3D3D3;
+  border-left: none;
+  transform: scale(0.9);
+}
+
+
+
 /* 
 
 NAVIGATION 
@@ -142,7 +177,7 @@ h1 {
   color: #008080;
   margin: 32px 0;
   text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
@@ -187,6 +222,7 @@ button {
 }
 
 .btn:active {
+  background-color: #D3D3D3;
   transform: translateY(1px);
 }
 
@@ -355,6 +391,7 @@ FEATURES
   flex-direction: column;
   align-items: center;
   padding-bottom: 16px;
+  text-align: end;
 }
 
 .book__img--wrapper {
@@ -383,12 +420,18 @@ FEATURES
   border-radius: 4px;
 }
 
-.book__img--wrapper:hover {
+.book__img--wrapper:hover { 
+  color: rgba(255, 255, 255, 1);
   transform: scale(1.07);
+  visibility: visible;
+  opacity: 50%; /* Fade in the icon */
 }
+
+
 
 .book__img--wrapper:active {
   transform: scale(0.95);
+  opacity: 100%;
 }
 
 .book__title {
@@ -406,21 +449,18 @@ FEATURES
   text-align: center;
 }
 
-.book__title--author,
-.book__price {
+.book__title--author {
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 300ms ease-in-out, color 300ms ease-in-out;
 }
 
-.book__title--author:hover,
-.book__price:hover {
+.book__title--author:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
 
-.book__title--author:active,
-.book__price:active {
+.book__title--author:active{
   transform: scale(1);
 }
 
@@ -435,18 +475,18 @@ FEATURES
   margin: 4px;
   padding: 8px;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 300ms ease-in-out, color 300ms ease;
+  /* transition: transform 300ms ease-in-out, color 300ms ease; */
 }
 
-.book__price:hover {
+/* .book__price:hover {
   color: #ff7f50;
   cursor: pointer;
   transform: scale(1.1);
-}
+} */
 
-.book__price:active {
+/* .book__price:active {
   transform: translateY(1px);
-}
+} */
 
 .author {
   font-style: italic;
