@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
     <link rel="stylesheet" href="./styles.css" />
-
+    <script src="index.js"></script>
     <script
       src="https://kit.fontawesome.com/5f84395d1e.js"
       crossorigin="anonymous"
@@ -18,17 +18,43 @@
         <div class="nav__container">
           <img src="./assets/Library.svg" class="logo" alt="" />
           <ul class="nav__links">
-            <li><a href="#home" class="nav__link">Home</a></li>
-            <li><a href="#contact" class="nav__link">Contact</a></li>
+            <li><a href="#" class="nav__link home">Home</a></li>
+            <li><a href="#" class="nav__link contact">Contact</a></li>
             <li>
               <a href="#features" class="nav__link nav__link--primary">Books</a>
             </li>
             <li>
-              <a href="#cart"
-                ><i class="fa-solid fa-cart-plus cart__icon--big"></i
+              <a href="#"
+                ><i class="fa-solid fa-cart-shopping cart__icon--big"></i
               ></a>
             </li>
           </ul>
+          <button class="btn__menu" onclick="openMenu()">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="menu__backdrop">
+            <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+              <i class="fas fa-times"></i>
+            </button>
+            <ul class="menu__links">
+              <li class="menu__list">
+                <a href="#" class="menu__link" onclick="closeMenu()">Home</a>
+              </li>
+              <li class="menu__list">
+                <a href="#features" class="menu__link" onclick="closeMenu()"
+                  >Books</a
+                >
+              </li>
+              <li class="menu__list">
+                <a class="menu__link no-cursor" onclick="closeMenu()"
+                  >Contact</a
+                >
+              </li>
+              <li class="menu__list">
+                <a class="menu__link no-cursor" onclick="closeMenu()">Cart</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
       <header>
@@ -390,8 +416,9 @@
                     alt="Mastery book"
                   />
                   <span>
-                    <i class="fa-solid fa-cart-plus cart__icon--book"> Add to Cart?</i>
-                  
+                    <i class="fa-solid fa-cart-plus cart__icon--book">
+                      Add to Cart?</i
+                    >
                   </span>
                 </figure>
                 <div class="book__title--author">
@@ -417,9 +444,42 @@
 
       <section id="explore">
         <div class="container">
-          <div class="row"></div>
+          <div class="row row__column">
+            <h2>
+              Don't miss out on our
+              <span class="teal"> <i>NEW</i></span> arrivals!
+            </h2>
+            <a href="#recent">
+              <button class="btn">
+                <span class="btn__content">See What's New!</span>
+              </button>
+            </a>
+          </div>
         </div>
       </section>
     </main>
+
+    <footer>
+      <div class="container">
+        <div class="row row__column">
+          <a href="#">
+            <figure class="footer__logo">
+              <img
+                src="./assets/Library.svg"
+                class="footer__logo--img"
+                alt=""
+              />
+            </figure>
+          </a>
+          <div class="footer__list">
+            <a href="#top" class="footer__link">Home</a>
+            <a class="footer__link no-cursor">About</a>
+            <a href="#features" class="footer__link">Books</a>
+            <a class="footer__link no-cursor">Contact</a>
+          </div>
+          <div class="footer__copyright">Copyright &copy; 2024 Library</div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
