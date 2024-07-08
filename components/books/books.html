@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prideful Pages | Books</title>
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script src="../../main/index.js" defer></script>
+    <script src="../books/books.js" defer></script>
+    <script src="https://kit.fontawesome.com/5f84395d1e.js" crossorigin="anonymous"></script>
+  </head>
+  <body class="books-page">
+    <nav>
+      <div class="nav__container">
+        <a href="../../main/index.html">
+          <img
+            src="../../assets/Prideful Pages LOGO.png"
+            class="logo"
+            alt="prideful pages logo"
+          />
+        </a>
+        <ul class="nav__links">
+          <li>
+            <a href="../../main/index.html" class="nav__link home">Home</a>
+          </li>
+          <li>
+            <a href="../about/about.html" class="nav__link contact">About</a>
+          </li>
+          <li>
+            <a href="../contact/contact.html" class="nav__link contact"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a href="../books/books.html" class="nav__link nav__link--primary"
+              >Books</a
+            >
+          </li>
+        </ul>
+        <button class="btn__menu" onclick="openMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="menu__backdrop">
+          <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+            <i class="fas fa-times"></i>
+          </button>
+          <ul class="menu__links">
+            <li class="menu__list">
+              <a
+                href="../../main/index.html"
+                class="menu__link"
+                onclick="closeMenu()"
+                >Home</a
+              >
+            </li>
+            <li class="menu__list">
+              <a
+                href="../about/about.html"
+                class="menu__link"
+                onclick="closeMenu()"
+                >About</a
+              >
+            </li>
+            <li class="menu__list">
+              <a
+                href="../contact/contact.html"
+                class="menu__link"
+                onclick="closeMenu()"
+                >Contact</a
+              >
+            </li>
+            <li class="menu__list">
+              <a
+                href="../books/books.html"
+                class="menu__link"
+                onclick="closeMenu()"
+                >Books</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main id="books__main">
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="books__header">
+              <h2 class="section__title books__header--title">
+                All <span class="teal">Books</span>
+              </h2>
+              <select id="filter-select">
+                <option value="">Genre</option>
+                <option value="Top-Rated ⭐️">Top-Rated ⭐️</option>
+                <option value="Fiction 🛸">Fiction 🛸</option>
+                <option value="Non-Fiction 📚">Non-Fiction 📚</option>
+                <option value="Fantasy 🧙‍♂️">Fantasy 🧙‍♂️</option>
+                <option value="Mystery 🕵️">Mystery 🕵️</option>
+                <option value="Romance 💖">Romance 💖</option>
+                <option value="Thriller 😱">Thriller 😱</option>
+                <option value="Biography 👤">Biography 👤</option>
+                <option value="History 🏛️">History 🏛️</option>
+                <option value="Science 🔬">Science 🔬</option>
+                <option value="Philosophy 🤔">Philosophy 🤔</option>
+                <option value="Poetry 🎭">Poetry 🎭</option>
+              </select>
+            </div>
+            <div class="books__loading"></div>
+            <div id="categories" class="categories"></div>
+              <!-- Book categories will be dynamically inserted here -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="explore">
+        <div class="container">
+          <div class="row row__column">
+            <h2>Explore More <span class="teal">Books</span></h2>
+            <h3>Discover More Queer Reads and Adventures</h3>
+            <a href="../books/books.html">
+              <button class="btn">Browse Our Books</button>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row row__column">
+          <a href="../../main/index.html">
+            <figure class="footer__logo">
+              <img
+                src="../../assets/Prideful Pages LOGO.png"
+                class="footer__logo--img"
+                alt="prideful pages logo"
+              />
+            </figure>
+          </a>
+          <div class="footer__list">
+            <a href="../../main/index.html" class="footer__link">Home</a>
+            <a href="../about/about.html" class="footer__link">About</a>
+            <a href="../contact/contact.html" class="footer__link">Contact</a>
+            <a href="../books/books.html" class="footer__link">Books</a>
+          </div>
+          <div class="footer__copyright">
+            Copyright &copy; 2024 Prideful Pages
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

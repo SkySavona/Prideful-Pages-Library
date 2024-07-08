@@ -1,0 +1,198 @@
+{
+  "books": [
+    {
+      "title": "The Seven Husbands of Evelyn Hugo",
+      "author": "Taylor Jenkins Reid",
+      "cover_img": "https://m.media-amazon.com/images/I/81PjadeEG4L._SY466_.jpg",
+      "bio": "Aging and reclusive Hollywood movie icon Evelyn Hugo is finally ready to tell the truth about her glamorous and scandalous life. But when she chooses unknown magazine reporter Monique Grant for the job, no one is more astounded than Monique herself. Why her? Why now? Monique is not exactly on top of the world. Her husband has left her, and her professional life is going nowhere. Regardless of why Evelyn has selected her to write her biography, Monique is determined to use this opportunity to jumpstart her career. Summoned to Evelyn’s luxurious apartment, Monique listens in fascination as the actress tells her story. From making her way to Los Angeles in the 1950s to her decision to leave show business in the ‘80s, and, of course, the seven husbands along the way, Evelyn unspools a tale of ruthless ambition, unexpected friendship, and a great forbidden love. Monique begins to feel a very real connection to the legendary star, but as Evelyn’s story near its conclusion, it becomes clear that her life intersects with Monique’s own in tragic and irreversible ways.",
+      "reviews": [
+        "Riveting, heart-wrenching, and full of Old Hollywood glamour, The Seven Husbands of Evelyn Hugo is one of the most captivating reads of 2017. —BuzzFeed",
+        "The epic adventures Evelyn creates over the course of a lifetime will leave every reader mesmerized. This wildly addictive journey of a reclusive Hollywood starlet and her tumultuous Tinseltown journey comes with unexpected twists and the most satisfying of drama. —PopSugar",
+        "Heartbreaking, yet beautiful. —Jamie Blynn, Us Weekly",
+        "Tinseltown drama at its finest. —Redbook"
+      ],
+      "isbn": "9781501139239",
+      "publish_date": "06-13-2017",
+      "star_rating": 4.6,
+      "rating_count": 232279,
+      "category": "Fiction",
+      "other_info": "Publisher: Atria Books <br> First Edition: (June 13, 2017) <br> Language: English <br> Hardcover: 400 pages <br> Item Weight: 3.53 ounces <br> Dimensions: 6 x 1.3 x 9 inches<br> Best Sellers Rank:<br>#12,099 in Books <br> #542 in Family Life Fiction <br> #786 in Women's Domestic Life Fiction <br>#4,223 in Contemporary Romance<br>"
+    },
+
+    {
+      "title": "Red, White & Royal Blue",
+      "author": "Casey McQuiston",
+      "cover_img": "https://m.media-amazon.com/images/I/51Su7WOGTzL._SY445_SX342_QL70_FMwebp_.jpg",
+      "bio": "The First Son of the United States falls in love with the Prince of Wales.",
+      "reviews": ["A heartfelt and hilarious romance."],
+      "isbn": "9781250316776",
+      "publish_date": "2019-05-14",
+      "star_rating": 4.7,
+      "rating_count": 60000,
+      "category": "Romance",
+      "other_info": "New York Times bestseller."
+    },
+    {
+      "title": "We Are Only Ghosts",
+      "author": "Kate Marie Robbins",
+      "cover_img": "https://m.media-amazon.com/images/I/81RexT1RU9L._SX342_.jpg",
+      "bio": "A poignant exploration of love and loss in a haunted town.",
+      "reviews": ["A beautifully written and emotional journey."],
+      "isbn": "9781234567890",
+      "publish_date": "2023-04-10",
+      "star_rating": 4.3,
+      "rating_count": 1000,
+      "category": "Fantasy",
+      "other_info": "Debut novel."
+    },
+    {
+      "title": "They Both Die at the End",
+      "author": "Adam Silvera",
+      "cover_img": "https://m.media-amazon.com/images/I/91BZ66FZScL._SX342_.jpg",
+      "bio": "Two teens receive a notice of their impending deaths and decide to live a lifetime in a single day.",
+      "reviews": ["Heartbreaking yet inspiring."],
+      "isbn": "9780062457790",
+      "publish_date": "2017-09-05",
+      "star_rating": 4.4,
+      "rating_count": 70000,
+      "category": "Fiction",
+      "other_info": "New York Times bestseller."
+    },
+    {
+      "title": "Cemetery Boys",
+      "author": "Aiden Thomas",
+      "cover_img": "https://m.media-amazon.com/images/I/81RDj-zD1ZL._SX342_.jpg",
+      "bio": "A trans boy summons a ghost who refuses to leave.",
+      "reviews": ["A vibrant tale of magic and identity."],
+      "isbn": "9781250250469",
+      "publish_date": "2020-09-01",
+      "star_rating": 4.5,
+      "rating_count": 20000,
+      "category": "Fantasy",
+      "other_info": "Finalist for the Goodreads Choice Award for Young Adult Fiction."
+    },
+    {
+      "title": "One Last Stop",
+      "author": "Casey McQuiston",
+      "cover_img": "https://m.media-amazon.com/images/I/71qD-gT77WS._SX342_.jpg",
+      "bio": "A young woman discovers her subway crush is displaced from the 1970s.",
+      "reviews": ["A delightful mix of romance and time travel."],
+      "isbn": "9781250244499",
+      "publish_date": "2021-06-01",
+      "star_rating": 4.3,
+      "rating_count": 40000,
+      "category": "Romance",
+      "other_info": "New York Times bestseller."
+    },
+    {
+      "title": "In the Dream House: A Memoir",
+      "author": "Carmen Maria Machado",
+      "cover_img": "https://m.media-amazon.com/images/I/91gUR+j6q4L._SX342_.jpg",
+      "bio": "A memoir about an abusive relationship within the queer community.",
+      "reviews": ["A groundbreaking and harrowing read."],
+      "isbn": "9781644450031",
+      "publish_date": "2019-11-05",
+      "star_rating": 4.2,
+      "rating_count": 15000,
+      "category": "Non-Fiction",
+      "other_info": "Winner of the Lambda Literary Award for LGBTQ Nonfiction."
+    },
+    {
+      "title": "Felix Ever After",
+      "author": "Kacen Callender",
+      "cover_img": "https://m.media-amazon.com/images/I/51nKFUDLJIL._SY445_SX342_QL70_FMwebp_.jpg",
+      "bio": "A transgender teen grapples with identity and self-discovery.",
+      "reviews": ["An empowering and heartfelt story."],
+      "isbn": "9780062820258",
+      "publish_date": "2020-05-05",
+      "star_rating": 4.6,
+      "rating_count": 25000,
+      "category": "Fiction",
+      "other_info": "Winner of the Stonewall Book Award."
+    },
+    {
+      "title": "Loveless",
+      "author": "Alice Oseman",
+      "cover_img": "https://m.media-amazon.com/images/I/91oPXJuzPuL._SX342_.jpg",
+      "bio": "A young woman discovers her asexuality and navigates her identity.",
+      "reviews": [
+        "A nuanced and uplifting exploration of love and friendship."
+      ],
+      "isbn": "9781338751932",
+      "publish_date": "2020-07-09",
+      "star_rating": 4.5,
+      "rating_count": 18000,
+      "category": "Fiction",
+      "other_info": "Winner of the YA Book Prize."
+    },
+    {
+      "title": "Boyfriend Material",
+      "author": "Alexis Hall",
+      "cover_img": "https://m.media-amazon.com/images/I/81sEv2uCAKL._SX342_.jpg",
+      "bio": "A fake relationship turns real between a reformed bad boy and a respectable lawyer.",
+      "reviews": ["A charming and hilarious romance."],
+      "isbn": "9781728206141",
+      "publish_date": "2020-07-07",
+      "star_rating": 4.4,
+      "rating_count": 30000,
+      "category": "Romance",
+      "other_info": "USA Today bestseller."
+    },
+    {
+      "title": "The House in the Cerulean Sea",
+      "author": "TJ Klune",
+      "cover_img": "https://m.media-amazon.com/images/I/819iTI3JmkL._SX342_.jpg",
+      "bio": "A caseworker for magical children discovers a found family.",
+      "reviews": ["A heartwarming and enchanting tale."],
+      "isbn": "9781250217288",
+      "publish_date": "2020-03-17",
+      "star_rating": 4.8,
+      "rating_count": 60000,
+      "category": "Fantasy",
+      "other_info": "Alex Award winner."
+    },
+
+    {
+      "title": "This Is How It Always Is",
+      "author": "Laurie Frankel",
+      "cover_img": "https://m.media-amazon.com/images/I/81j25Px7ifL._SX342_.jpg",
+      "bio": "A family navigates the challenges and joys of raising a transgender child.",
+      "reviews": ["A compassionate and thought-provoking novel."],
+      "isbn": "9781250088550",
+      "publish_date": "2017-01-24",
+      "star_rating": 4.3,
+      "rating_count": 35000,
+      "category": "Fiction",
+      "other_info": "New York Times bestseller."
+    },
+    {
+      "title": "Detransition, Baby",
+      "author": "Torrey Peters",
+      "cover_img": "https://m.media-amazon.com/images/I/81pHbz80pNL._SX342_.jpg",
+      "bio": "Three people, including a trans woman and her ex, navigate a complex relationship and parenthood.",
+      "reviews": ["A bold and innovative story."],
+      "isbn": "9780593133378",
+      "publish_date": "2021-01-12",
+      "star_rating": 4.1,
+      "rating_count": 20000,
+      "category": "Fiction",
+      "other_info": "Longlisted for the Women's Prize for Fiction."
+    },
+    {
+      "title": "The Mars House: A Novel",
+      "author": "Natasha Pulley",
+      "cover_img": "https://m.media-amazon.com/images/I/81ceF-xrZgL._SY466_.jpg",
+      "bio": "A compulsively readable queer sci-fi novel about a marriage of convenience between a Mars politician and an Earth refugee. Named as one of Amazon's Best Books of 2024 So Far. As Recommended By: Amazon * LitHub * Gizmodo * New Scientist * LGBTQ Reads * Reactor Magazine * KOBO Canada * BookRiot. In the wake of an environmental catastrophe, January, once a principal in London's Royal Ballet, has become a refugee in Tharsis, the terraformed colony on Mars. There, January's life is dictated by his status as an Earthstronger - a person whose body is not adjusted to lower gravity and so poses a danger to those born on, or naturalized to, Mars. January's job choices, housing, and even transportation are dictated by this second-class status, and now a xenophobic politician named Aubrey Gale is running on a platform that would make it all worse: Gale wants all Earthstrongers to naturalize, a process that is always disabling and sometimes deadly. When Gale chooses January for an on-the-spot press junket interview that goes horribly awry, January's life is thrown into chaos, but Gale's political fortunes are damaged, too. Gale proposes a solution to both their problems: a five year made-for-the-press marriage that would secure January's future without naturalization and ensure Gale's political success. But when January accepts the offer, he discovers that Gale is not at all like they appear in the press. They're kind, compassionate, and much more difficult to hate than January would prefer. As their romantic relationship develops, the political situation worsens, and January discovers Gale has an enemy, someone willing to destroy all of Tharsis to make them pay - and January may be the only person standing in the way. Un-put-downably immersive and utterly timely, Natasha Pulley's new novel is a gripping story about privilege, strength, and life across class divisions, perfect for readers of Sarah Gailey and Tamsyn Muir.",
+      "reviews": [
+        "Un-put-downably immersive and utterly timely.",
+        "A gripping story about privilege, strength, and life across class divisions."
+      ],
+      "isbn": "9781639732333",
+      "publish_date": "2024-03-19",
+      "star_rating": 4.6,
+      "rating_count": 233,
+      "category": "Fiction",
+      "other_info": "Named one of Amazon's Best Books of 2024 So Far. As Recommended By: Amazon, LitHub, Gizmodo, New Scientist, LGBTQ Reads, Reactor Magazine, KOBO Canada, BookRiot."
+    }
+  ]
+}

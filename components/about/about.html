@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prideful Pages | About</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script src="../../main/index.js" defer></script>
+    <!-- <script src="../books/books.js" defer></script> -->
+    <script
+      src="https://kit.fontawesome.com/5f84395d1e.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section id="landing">
+      <nav>
+        <div class="nav__container">
+          <a href="../../main/index.html">
+            <img
+              src="../../assets/Prideful Pages LOGO.png"
+              class="logo"
+              alt="prideful pages logo"
+            />
+          </a>
+          <ul class="nav__links">
+            <li><a href="../../main/index.html" class="nav__link home">Home</a></li>
+            <li>
+              <a href="./about.html" class="nav__link contact">About</a>
+            </li>
+            <li>
+              <a href="../contact/contact.html" class="nav__link contact">Contact</a>
+            </li>
+            <li>
+              <a href="../books/books.html" class="nav__link nav__link--primary"
+                >Books</a
+              >
+            </li>
+          </ul>
+          <button class="btn__menu" onclick="openMenu()">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="menu__backdrop">
+            <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+              <i class="fas fa-times"></i>
+            </button>
+            <ul class="menu__links">
+              <li class="menu__list">
+                <a href="../../main/index.html" class="menu__link" onclick="closeMenu()"
+                  >Home</a
+                >
+              </li>
+              <li class="menu__list">
+                <a href="./about.html" class="menu__link" onclick="closeMenu()"
+                  >About</a
+                >
+              </li>
+              <li class="menu__list">
+                <a
+                  href="../contact/contact.html"
+                  class="menu__link"
+                  onclick="closeMenu()"
+                  >Contact</a
+                >
+              </li>
+              <li class="menu__list">
+                <a href="../books/books.html" class="menu__link" onclick="closeMenu()"
+                  >Books</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+
+    <main id="contact__body">
+      <section id="contact__main">
+        <div class="container about-us">
+          <h2>About <span style="color: #71c4c8">Us</span></h2>
+          <p class="about__para">Welcome to Prideful Pages, your vibrant hub for LGBTQIA+ literature. We’re more than just a library catalog; we’re a community that celebrates the diverse voices and stories that make our world colorful and full of love. At Prideful Pages, we believe in providing a welcoming space for all individuals to explore and embrace LGBTQIA+ literature and culture.”n the power of representation. That's why we've curated a vast collection of books that showcase the richness and variety of LGBTQIA+ experiences. We’ve got everything from heartwarming romances to thrilling adventures, from powerful memoirs to imaginative fantasies!</p>
+         <div class="about__list--container">
+            <h3 class="about__sub-title">What We <span class="teal">Offer</span></h3>
+             <ul class="about__list--container" >
+                <li class="about__list" ><span style="color: #71c4c8">Diverse Selection:</span> Our catalog is bursting with queer stories from every genre you can imagine. Whether you're looking for a tear-jerker or a page-turner, we've got you covered.</li>
+               <li class="about__list" ><span style="color: #71c4c8">Top-Rated Reads:</span> Explore our collection of top-rated LGBTQIA+ books, loved by readers just like you.</li>
+               <li class="about__list" ><span style="color: #71c4c8">Support Authors:</span> By highlighting talented LGBTQIA+ authors, we help their voices reach more readers and create a more inclusive literary world.</li>
+            </ul>
+        </div>
+        <div class="about__offer--container">
+          <h3 class="about__sub-title">How It <span class="teal">Works</span></h3>
+          <p class="about__para">Browsing through our collection is as easy as a summer breeze! When you find a book that piques your interest, follow the link to Amazon to make a purchase. Whether you’re adding to your bookshelf or your e-reader, we've made it seamless for you to dive into your next great read.</p>
+        </div>
+        <h3 class="about__sub-title">Our <span class="teal">Mission</span></h3>
+        <p class="about__para">We aim to create a welcoming space where everyone can discover and celebrate queer literature and voices. We're here to inspire, educate, and entertain, one book at a time.</p>
+        </div>
+      </section>
+      <section id="explore">
+        <div class="container">
+          <div class="row row__column">
+            <h2>Explore Our <span class="teal">Books</span></h2>
+            <h3>Discover Hundreds of Queer Reads and Adventures</h3>
+            <a href="../books/books.html">
+              <button class="btn">Browse Our Books</button>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row row__column">
+          <a href="../../main/index.html">
+            <figure class="footer__logo">
+              <img
+                src="../../assets/Prideful Pages LOGO.png"
+                class="footer__logo--img"
+                alt="prideful pages logo"
+              />
+            </figure>
+          </a>
+          <div class="footer__list">
+            <a href="../../main/index.html" class="footer__link">Home</a>
+            <a href="./about.html" class="footer__link">About</a>
+            <a href="../contact/contact.html" class="footer__link">Contact</a>
+            <a href="../books/books.html" class="footer__link">Books</a>
+          </div>
+          <div class="footer__copyright">
+            Copyright &copy; 2024 Prideful Pages
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
