@@ -128,7 +128,7 @@ nav {
 }
 
 .logo {
-  width: 100px;
+  width: 80px;
   left: 20px;
   padding-top: 20px;
   transition: transform 300ms ease-in-out;
@@ -216,6 +216,7 @@ BURGER MENU
   display: none;
   cursor: pointer;
   padding: none !important;
+
 }
 
 button.btn__menu:hover {
@@ -332,8 +333,8 @@ header {
 }
 
 .btn.header__button {
-  width: 20%;
-  margin-bottom: 20px;
+  width: 30%;
+  margin-bottom: px;
 }
 
 .header__img--wrapper {
@@ -384,7 +385,7 @@ BUTTONS
 
 */
 
-.btn {
+/* .btn {
   background-color: #f27f8f;
   color: white;
   padding: 12px 24px;
@@ -397,7 +398,8 @@ BUTTONS
   text-align: center;
   display: inline-block;
   cursor: pointer;
-}
+  
+} */
 
 .btn:hover {
   transform: scale(1.1);
@@ -495,9 +497,6 @@ FEATURED AND CAROUSEL
   margin: -64px;
 }
 
-.section__title {
-  /* padding: 20px; */
-}
 
 .books {
   grid-template-columns: repeat(4, 3fr);
@@ -613,7 +612,7 @@ FEATURED AND CAROUSEL
 .carousel {
   position: relative;
   overflow: hidden;
-  min-height: 300px; /* Ensure minimum height even when empty */
+  min-height: 300px; 
 }
 
 .carousel h3 {
@@ -628,8 +627,18 @@ FEATURED AND CAROUSEL
 .carousel-container {
   display: flex;
   transition: transform 0.3s ease;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; 
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
   gap: 24px;
 }
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
 
 .carousel .book {
   flex: 0 0 calc(25% - 18px);
@@ -661,14 +670,6 @@ FEATURED AND CAROUSEL
   right: 10px;
 }
 
-.btn.load-more {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px auto;
-}
-
 /* 
 
 BOOKS PAGES
@@ -686,6 +687,10 @@ BOOKS PAGES
   padding: 0 24px;
   padding-top: 20px;
   margin-bottom: 20px;
+}
+
+.books__header--title {
+  margin-bottom: 0;
 }
 
 .books__header select {
@@ -706,6 +711,7 @@ BOOKS PAGES
 BOOK DETAILS 
 
 */
+
 
 .book-details {
   display: flex;
@@ -740,7 +746,7 @@ BOOK DETAILS
 
 .book-info {
   flex: 1 1 300px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .book-title {
@@ -826,7 +832,9 @@ BOOK DETAILS
 
 .btn {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 0px 20px;
+  padding-bottom: 14px;
+  padding-top: 10px;
   background-color: #f27f8f;
   color: white;
   text-decoration: none;
@@ -861,7 +869,7 @@ footer {
 }
 
 .footer__logo {
-  width: 100px;
+  width: 80px;
   transition: transform 300ms ease-in-out;
   transform: scale(1);
 }
@@ -1006,7 +1014,7 @@ ABOUT US
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px;
 }
 
 .about__para {
@@ -1086,6 +1094,10 @@ MEDIA QUERIES
 }
 
 @media (max-width: 768px) {
+
+  header {
+    margin-top: 0px;
+  }
   .header__img--wrapper img {
     max-width: 80%;
   }
@@ -1105,13 +1117,18 @@ MEDIA QUERIES
   }
 
   h1 {
-    font-size: 40px;
+    font-size: 52px;
   }
 
   h2 {
-    font-size: 28px;
+    font-size: 36px;
   }
 
+  .btn.header__button {
+    width: 40%;
+    padding-bottom: 15px;
+  }
+  
   .book-details {
     flex-direction: column;
   }
@@ -1130,9 +1147,30 @@ MEDIA QUERIES
   .about__list {
     max-width: 100%;
   }
+
+  #contactForm {
+    width: 70%;
+  }
+
+  .book-title {
+    font-size: 32px;
+  }
+
+  .book-details {
+    text-align: center;
+  }
 }
 
 @media (max-width: 600px) {
+
+  #best-sellers {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .btn.header__button {
+    width:50%;
+  }
   .books,
   .carousel .book {
     grid-template-columns: 1fr;
@@ -1142,9 +1180,41 @@ MEDIA QUERIES
     max-width: 100%;
   }
   .carousel-button {
-    display: none;
+    /* display: none; */
   }
 }
+
+@media (max-width: 550px){
+  .btn.header__button {
+    width:50%;
+  }
+  h2 {
+    font-size: 30px;
+    margin-bottom: 16px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+@media (max-width: 500px){
+  .btn.header__button {
+    width:50%;
+  
+  }
+  h3 {
+    font-size: 16px;
+  }
+}
+@media (max-width: 490px){
+  .btn.header__button {
+    width:50%;
+    font-size: 16px;
+  }
+}
+
 
 @media (max-width: 480px) {
   .highlight {
@@ -1175,6 +1245,48 @@ MEDIA QUERIES
   }
 }
 
+@media (max-width: 490px){
+  .btn.header__button {
+    width:50%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 48px;
+  }
+  /* h2 {
+    font-size: 24px;
+  } */
+  .stars-icon {
+    scale: 0.8;
+  }
+}
+@media (max-width: 440px) {
+  h1 {
+    font-size: 40px;
+  }
+  /* h2 {
+    font-size: 20px;
+  } */
+  .stars-icon {
+    scale: 0.8;
+  }
+}
+
+
+@media (max-width: 390px){
+
+/* h2 {
+  font-size: 20px;
+} */
+  .btn.header__button {
+    width:70%;
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 320px) {
   .highlight {
     padding: 16px;
@@ -1193,4 +1305,69 @@ MEDIA QUERIES
   .highlight__para {
     font-size: 12px;
   }
+}
+
+
+/* ANIMATIONS */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fade-in, .slide-up {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+}
+
+.animate-on-scroll.animate {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.staggered-animation {
+  opacity: 0;
+}
+
+.staggered-animation.animate {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.header__img, .container.about-us,
+.book-detail-page .book-details, .about-content,
+.contact-page .contact-form {
+  animation: fadeIn 1s ease-out;
+}
+
+.staggered-animation {
+  opacity: 0;
+  animation: slideUp 1s ease-out forwards;
 }
