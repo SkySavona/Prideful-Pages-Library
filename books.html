@@ -4,36 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prideful Pages | Books</title>
-    <link rel="icon" href="../../assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../css/styles.css" />
-    <script src="../../index.js" defer></script>
-    <script src="../../books.js" defer></script>
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./components/css/styles.css" />
+    <script src="./index.js" defer></script>
+    <script src="./books.js" defer></script>
+    <script src="./all_books.json"></script>
     <script src="https://kit.fontawesome.com/5f84395d1e.js" crossorigin="anonymous"></script>
   </head>
   <body class="books-page">
     <nav>
       <div class="nav__container">
-        <a href="../../index.html">
+        <a href="./index.html">
           <img
-            src="../../assets/Prideful Pages LOGO.png"
+            src="./assets/Prideful Pages LOGO.png"
             class="logo"
             alt="prideful pages logo"
           />
         </a>
         <ul class="nav__links">
           <li>
-            <a href="../../index.html" class="nav__link home">Home</a>
+            <a href="./index.html" class="nav__link home">Home</a>
           </li>
           <li>
-            <a href="../about/about.html" class="nav__link contact">About</a>
+            <a href="./components/about/about.html" class="nav__link contact">About</a>
           </li>
           <li>
-            <a href="../contact/contact.html" class="nav__link contact"
+            <a href="./components/contact/contact.html" class="nav__link contact"
               >Contact</a
             >
           </li>
           <li>
-            <a href="../books/books.html" class="nav__link nav__link--primary"
+            <a href="./books.html" class="nav__link nav__link--primary"
               >Books</a
             >
           </li>
@@ -48,7 +49,7 @@
           <ul class="menu__links">
             <li class="menu__list">
               <a
-                href="../../index.html"
+                href="./index.html"
                 class="menu__link"
                 onclick="closeMenu()"
                 >Home</a
@@ -56,7 +57,7 @@
             </li>
             <li class="menu__list">
               <a
-                href="../about/about.html"
+                href="./components/about/about.html"
                 class="menu__link"
                 onclick="closeMenu()"
                 >About</a
@@ -64,7 +65,7 @@
             </li>
             <li class="menu__list">
               <a
-                href="../contact/contact.html"
+                href="./components/contact/contact.html"
                 class="menu__link"
                 onclick="closeMenu()"
                 >Contact</a
@@ -72,7 +73,7 @@
             </li>
             <li class="menu__list">
               <a
-                href="../books/books.html"
+                href="./books.html"
                 class="menu__link"
                 onclick="closeMenu()"
                 >Books</a
@@ -115,11 +116,11 @@
         </div>
       </section>
       <section id="explore">
-        <div class="container">
+        <div class="container animate-on-scroll" style="--animate-delay: 1s;">
           <div class="row row__column">
             <h2>Explore More <span class="teal">Books</span></h2>
             <h3>Discover More Queer Reads and Adventures</h3>
-            <a href="../books/books.html">
+            <a href="./books.html">
               <button class="btn">Browse Books</button>
             </a>
           </div>
@@ -128,22 +129,22 @@
     </main>
 
     <footer>
-      <div class="container">
+      <div class="container animate-on-scroll" style="--animate-delay: 1s;">
         <div class="row row__column">
-          <a href="../../index.html">
+          <a href="./index.html">
             <figure class="footer__logo">
               <img
-                src="../../assets/Prideful Pages LOGO.png"
+                src="./assets/Prideful Pages LOGO.png"
                 class="footer__logo--img"
                 alt="prideful pages logo"
               />
             </figure>
           </a>
           <div class="footer__list">
-            <a href="../../index.html" class="footer__link">Home</a>
-            <a href="../about/about.html" class="footer__link">About</a>
-            <a href="../contact/contact.html" class="footer__link">Contact</a>
-            <a href="../books/books.html" class="footer__link">Books</a>
+            <a href="./index.html" class="footer__link">Home</a>
+            <a href="./components/about/about.html" class="footer__link">About</a>
+            <a href="./components/contact/contact.html" class="footer__link">Contact</a>
+            <a href="./books.html" class="footer__link">Books</a>
           </div>
           <div class="footer__copyright">
             Copyright &copy; 2024 Prideful Pages

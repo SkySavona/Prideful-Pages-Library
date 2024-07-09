@@ -17,7 +17,7 @@ console.log("Script loaded");
 async function fetchBooks() {
   console.log("Fetching books...");
   try {
-    const response = await fetch("../../all_books.json");
+    const response = await fetch("/all_books.json");
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     const data = await response.json();
     console.log("Books fetched successfully:", data.books.length);
@@ -136,7 +136,6 @@ function setupCarousels() {
         scrollCarousel("prev");
       });
 
-      // Remove animation classes and prevent default scroll behavior
       container.addEventListener("scroll", (event) => {
         event.preventDefault();
         const books = container.querySelectorAll(".book");
@@ -146,7 +145,6 @@ function setupCarousels() {
         });
       });
 
-      // Recalculate scroll amount on window resize
       window.addEventListener("resize", () => {
         console.log(`Recalculating scroll amount for ${category}`);
       });
@@ -255,10 +253,10 @@ function createBookHTML(book, index) {
     }" style="animation-delay: ${index * 0.1}s;">
       <figure class="book__img--wrapper">
         <img class="book__img" src="${
-          book.cover_img || "../../assets/no_img_book_cover.svg"
+          book.cover_img || "/assets/no_img_book_cover.svg"
         }" alt="${
     book.title
-  }" loading="lazy" onerror="this.onerror=null; this.src='../../assets/no_img_book_cover.svg';">
+  }" loading="lazy" onerror="this.onerror=null; this.src='/assets/no_img_book_cover.svg';">
       </figure>
       <div class="book__title">${book.title}</div>
       <div class="book__authors">${book.author}</div>
@@ -269,7 +267,7 @@ function createBookHTML(book, index) {
             )} <br> (${book.rating_count.toLocaleString()})`
           : "Not rated"
       }</div>
-      <a href="../../components/bookDetail/book-detail.html?isbn=${
+      <a href="/components/bookDetail/book-detail.html?isbn=${
         book.isbn
       }" target="_blank" class="btn">View Details</a>
     </div>
@@ -312,7 +310,7 @@ function createBookDetailHTML(book) {
   return `
     <div class="book-cover">
       <img src="${
-        book.cover_img || "../../assets/no_img_book_cover.svg"
+        book.cover_img || "/assets/no_img_book_cover.svg"
       }" alt="${book.title}" class="book-img">
     </div>
     <div class="book-info">
@@ -422,7 +420,7 @@ function setupScrollAnimations() {
     {
       root: null,
       rootMargin: "0px",
-      threshold: 0.1,
+      threshold: 0.3,
     }
   );
 
@@ -435,10 +433,13 @@ function setupScrollAnimations() {
     }
   });
 }
+
+document.addEventListener('DOMContentLoaded', setupScrollAnimations);
+
 function addBookImageClickListeners() {
   console.log("Adding book image click listeners");
   const bookContainers = document.querySelectorAll(
-    "#top-rated .carousel-container, .carousel, #best-sellers"
+    "#top-rated, .carousel-container, .carousel, #best-sellers"
   );
   bookContainers.forEach((container) => {
     container.addEventListener("click", handleBookImageClick);
@@ -454,7 +455,7 @@ function handleBookImageClick(event) {
       if (isbn) {
         event.preventDefault();
         console.log(`Navigating to book detail page for ISBN: ${isbn}`);
-        window.location.href = `../../components/bookDetail/book-detail.html?isbn=${isbn}`;
+        window.location.href = `/components/bookDetail/book-detail.html?isbn=${isbn}`;
       }
     }
   }
