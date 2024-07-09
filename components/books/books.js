@@ -1,6 +1,11 @@
 const categories = [
-  "Top-Rated ⭐️", "Fiction 🛸", "Non-Fiction 📚", "Non-Fiction", "Fantasy 🧙‍♂️",
-  "Mystery 🕵️", "Romance 💖"
+  "Top-Rated ⭐️",
+  "Fiction 🛸",
+  "Non-Fiction 📚",
+  "Non-Fiction",
+  "Fantasy 🧙‍♂️",
+  "Mystery 🕵️",
+  "Romance 💖",
   // , "Thriller 😱", "Biography 👤", "History 🏛️",
   // "Science 🔬", "Philosophy 🤔", "Poetry 🎭",
 ];
@@ -28,20 +33,20 @@ async function initializePage() {
   const pageType = document.body.className;
   console.log("Page type:", pageType);
 
-  switch(pageType) {
-    case 'books-page':
+  switch (pageType) {
+    case "books-page":
       await initializeBooksPage();
       break;
-    case 'book-detail-page':
+    case "book-detail-page":
       await initializeBookDetailPage();
       break;
-    case 'home-page':
+    case "home-page":
       await initializeHomePage();
       break;
-    case 'about-page':
+    case "about-page":
       initializeAboutPage();
       break;
-    case 'contact-page':
+    case "contact-page":
       initializeContactPage();
       break;
     default:
@@ -53,25 +58,27 @@ async function initializePage() {
 }
 
 function setupFilterDropdown() {
-  const filterSelect = document.getElementById('filter-select');
+  const filterSelect = document.getElementById("filter-select");
   if (filterSelect) {
-    filterSelect.addEventListener('change', function() {
+    filterSelect.addEventListener("change", function () {
       const selectedCategory = this.value;
       if (selectedCategory) {
-        const categorySection = document.getElementById(`section-${getCategoryId(selectedCategory)}`);
+        const categorySection = document.getElementById(
+          `section-${getCategoryId(selectedCategory)}`
+        );
         if (categorySection) {
-          categorySection.scrollIntoView({ behavior: 'smooth' });
+          categorySection.scrollIntoView({ behavior: "smooth" });
         }
       }
     });
   } else {
-    console.error('Filter select element not found');
+    console.error("Filter select element not found");
   }
 }
 
 function setupCarousels() {
   console.log("Setting up carousels");
-  categories.forEach(category => {
+  categories.forEach((category) => {
     const categoryId = getCategoryId(category);
     const container = document.querySelector(`#${categoryId}`);
     const prevBtn = document.querySelector(`#prev-${categoryId}`);
@@ -79,11 +86,11 @@ function setupCarousels() {
 
     if (container && prevBtn && nextBtn) {
       console.log(`Setting up carousel for category: ${category}`);
-      
-      const gap = 24; 
+
+      const gap = 24;
 
       function getScrollAmount() {
-        const books = container.querySelectorAll('.book');
+        const books = container.querySelectorAll(".book");
         if (books.length > 0) {
           const book = books[0];
           return book.offsetWidth + gap;
@@ -98,46 +105,49 @@ function setupCarousels() {
 
         let newScrollPosition;
 
-        if (direction === 'next') {
+        if (direction === "next") {
           newScrollPosition = Math.min(currentScroll + scrollAmount, maxScroll);
-          if (newScrollPosition === maxScroll || newScrollPosition === currentScroll) {
-            newScrollPosition = 0; 
+          if (
+            newScrollPosition === maxScroll ||
+            newScrollPosition === currentScroll
+          ) {
+            newScrollPosition = 0;
           }
-        } else { 
+        } else {
           newScrollPosition = Math.max(currentScroll - scrollAmount, 0);
           if (newScrollPosition === 0 && currentScroll === 0) {
-            newScrollPosition = maxScroll; 
+            newScrollPosition = maxScroll;
           }
         }
 
         container.scrollTo({
           left: newScrollPosition,
-          behavior: 'smooth'
+          behavior: "smooth",
         });
       }
 
-      nextBtn.addEventListener('click', () => {
+      nextBtn.addEventListener("click", () => {
         console.log(`Next button clicked for ${category}`);
-        scrollCarousel('next');
+        scrollCarousel("next");
       });
 
-      prevBtn.addEventListener('click', () => {
+      prevBtn.addEventListener("click", () => {
         console.log(`Prev button clicked for ${category}`);
-        scrollCarousel('prev');
+        scrollCarousel("prev");
       });
 
       // Remove animation classes and prevent default scroll behavior
-      container.addEventListener('scroll', (event) => {
+      container.addEventListener("scroll", (event) => {
         event.preventDefault();
-        const books = container.querySelectorAll('.book');
-        books.forEach(book => {
-          book.classList.remove('animate-on-scroll');
-          book.classList.remove('animate');
+        const books = container.querySelectorAll(".book");
+        books.forEach((book) => {
+          book.classList.remove("animate-on-scroll");
+          book.classList.remove("animate");
         });
       });
 
       // Recalculate scroll amount on window resize
-      window.addEventListener('resize', () => {
+      window.addEventListener("resize", () => {
         console.log(`Recalculating scroll amount for ${category}`);
       });
     } else {
@@ -186,11 +196,11 @@ async function initializeBooksPage() {
 function categorizeBooks(books) {
   console.log("Categorizing books");
   const categorizedBooks = {};
-  categories.forEach(category => {
+  categories.forEach((category) => {
     categorizedBooks[category] = [];
   });
 
-  books.forEach(book => {
+  books.forEach((book) => {
     if (book.star_rating >= 4.5 && book.rating_count >= 1000) {
       categorizedBooks["Top-Rated ⭐️"].push(book);
     }
@@ -203,13 +213,24 @@ function categorizeBooks(books) {
 }
 
 function findMatchingCategory(bookCategory) {
-  const normalizedBookCategory = bookCategory.toLowerCase().replace(/[^\w\s]/gi, '');
-  
-  return categories.find(category => {
-    const normalizedCategory = category.toLowerCase().replace(/[^\w\s]/gi, '');
-    return normalizedCategory.includes(normalizedBookCategory) || 
-           normalizedBookCategory.includes(normalizedCategory);
-  }) || (normalizedBookCategory.includes('non-fiction') ? "Non-Fiction 📚" : "Fiction 🛸");
+  const normalizedBookCategory = bookCategory
+    .toLowerCase()
+    .replace(/[^\w\s]/gi, "");
+
+  return (
+    categories.find((category) => {
+      const normalizedCategory = category
+        .toLowerCase()
+        .replace(/[^\w\s]/gi, "");
+      return (
+        normalizedCategory.includes(normalizedBookCategory) ||
+        normalizedBookCategory.includes(normalizedCategory)
+      );
+    }) ||
+    (normalizedBookCategory.includes("non-fiction")
+      ? "Non-Fiction 📚"
+      : "Fiction 🛸")
+  );
 }
 
 function renderBooks(booksToRender, container) {
@@ -229,14 +250,28 @@ function renderBooks(booksToRender, container) {
 
 function createBookHTML(book, index) {
   return `
-    <div class="book animate-on-scroll" data-key="${book.isbn}" style="animation-delay: ${index * 0.1}s;">
+    <div class="book animate-on-scroll" data-key="${
+      book.isbn
+    }" style="animation-delay: ${index * 0.1}s;">
       <figure class="book__img--wrapper">
-        <img class="book__img" src="${book.cover_img || "../../assets/no_img_book_cover.svg"}" alt="${book.title}" loading="lazy" onerror="this.onerror=null; this.src='../../assets/no_img_book_cover.svg';">
+        <img class="book__img" src="${
+          book.cover_img || "../../assets/no_img_book_cover.svg"
+        }" alt="${
+    book.title
+  }" loading="lazy" onerror="this.onerror=null; this.src='../../assets/no_img_book_cover.svg';">
       </figure>
       <div class="book__title">${book.title}</div>
       <div class="book__authors">${book.author}</div>
-      <div class="book__rating">${book.star_rating ? `${book.star_rating.toFixed(1)} ${renderStarRating(book.star_rating)} <br> (${book.rating_count.toLocaleString()})` : "Not rated"}</div>
-      <a href="../../components/bookDetail/book-detail.html?isbn=${book.isbn}" target="_blank" class="btn">View Details</a>
+      <div class="book__rating">${
+        book.star_rating
+          ? `${book.star_rating.toFixed(1)} ${renderStarRating(
+              book.star_rating
+            )} <br> (${book.rating_count.toLocaleString()})`
+          : "Not rated"
+      }</div>
+      <a href="../../components/bookDetail/book-detail.html?isbn=${
+        book.isbn
+      }" target="_blank" class="btn">View Details</a>
     </div>
   `;
 }
@@ -244,26 +279,28 @@ function createBookHTML(book, index) {
 async function initializeBookDetailPage() {
   console.log("Initializing book detail page");
   const urlParams = new URLSearchParams(window.location.search);
-  const isbn = urlParams.get('isbn');
-  
+  const isbn = urlParams.get("isbn");
+
   if (!isbn) {
-    console.error('No ISBN provided in the URL');
-    displayError('No book selected. Please go back and select a book.');
+    console.error("No ISBN provided in the URL");
+    displayError("No book selected. Please go back and select a book.");
     return;
   }
 
   const books = await fetchBooks();
-  const book = books.find(b => b.isbn === isbn);
+  const book = books.find((b) => b.isbn === isbn);
 
   if (!book) {
-    console.error('Book not found');
-    displayError('Book not found. Please try again or select a different book.');
+    console.error("Book not found");
+    displayError(
+      "Book not found. Please try again or select a different book."
+    );
     return;
   }
 
-  const detailContainer = document.getElementById('book-detail-container');
+  const detailContainer = document.getElementById("book-detail-container");
   if (!detailContainer) {
-    console.error('Book detail container not found');
+    console.error("Book detail container not found");
     return;
   }
 
@@ -274,7 +311,9 @@ async function initializeBookDetailPage() {
 function createBookDetailHTML(book) {
   return `
     <div class="book-cover">
-      <img src="${book.cover_img || "../../assets/no_img_book_cover.svg"}" alt="${book.title}" class="book-img">
+      <img src="${
+        book.cover_img || "../../assets/no_img_book_cover.svg"
+      }" alt="${book.title}" class="book-img">
     </div>
     <div class="book-info">
       <h1 class="book-title">${book.title}</h1>
@@ -283,7 +322,9 @@ function createBookDetailHTML(book) {
         ${renderStarRating(book.star_rating)} ${book.star_rating.toFixed(1)} 
         (${book.rating_count.toLocaleString()} ratings)
       </div>
-      <p class="book-publish-date"><strong>Published:</strong> ${book.publish_date}</p>
+      <p class="book-publish-date"><strong>Published:</strong> ${
+        book.publish_date
+      }</p>
       <p class="book-isbn"><strong>ISBN:</strong> ${book.isbn}</p>
       <p class="book-category"><strong>Category:</strong> ${book.category}</p>
       <div class="book-bio">
@@ -293,20 +334,22 @@ function createBookDetailHTML(book) {
       <div class="book-reviews">
         <h2>Reviews</h2>
         <ul>
-          ${book.reviews.map(review => `<li>${review}</li>`).join('')}
+          ${book.reviews.map((review) => `<li>${review}</li>`).join("")}
         </ul>
       </div>
       <div class="book-other-info">
         <h2>Additional Information</h2>
         <p>${book.other_info}</p>
       </div>
-      <a href="${createAmazonAffiliateLink(book)}" class="btn" target="_blank">View on Amazon</a>
+      <a href="${createAmazonAffiliateLink(
+        book
+      )}" class="btn" target="_blank">View on Amazon</a>
     </div>
   `;
 }
 
 function displayError(message) {
-  const detailContainer = document.getElementById('book-detail-container');
+  const detailContainer = document.getElementById("book-detail-container");
   if (detailContainer) {
     detailContainer.innerHTML = `<p class="error-message">${message}</p>`;
   }
@@ -316,12 +359,16 @@ function renderStarRating(rating) {
   const fullStars = Math.floor(rating);
   const halfStar = rating % 1 >= 0.5 ? 1 : 0;
   const emptyStars = 5 - fullStars - halfStar;
-  return `${"★".repeat(fullStars)}${halfStar ? "½" : ""}${"☆".repeat(emptyStars)}`;
+  return `${"★".repeat(fullStars)}${halfStar ? "½" : ""}${"☆".repeat(
+    emptyStars
+  )}`;
 }
 
 function createAmazonAffiliateLink(book) {
   const searchTerm = book.isbn || `${book.title} ${book.author}`;
-  return `https://www.amazon.com/s?k=${encodeURIComponent(searchTerm)}&tag=eduhub0a-20`;
+  return `https://www.amazon.com/s?k=${encodeURIComponent(
+    searchTerm
+  )}&tag=eduhub0a-20`;
 }
 
 async function initializeHomePage() {
@@ -330,8 +377,9 @@ async function initializeHomePage() {
   if (!bestSellersContainer) {
     console.error("Best sellers container not found");
     return;
+    
   }
-
+  
   const books = await fetchBooks();
   const topRatedBooks = books
     .filter((book) => book.star_rating >= 4.5 && book.rating_count >= 1000)
@@ -342,9 +390,9 @@ async function initializeHomePage() {
 
 function initializeAboutPage() {
   console.log("Initializing about page");
-  const aboutContent = document.querySelector('.about-us');
+  const aboutContent = document.querySelector(".about-us");
   if (aboutContent) {
-    aboutContent.classList.add('animate');
+    aboutContent.classList.add("animate");
   } else {
     console.error("About content not found");
   }
@@ -352,9 +400,9 @@ function initializeAboutPage() {
 
 function initializeContactPage() {
   console.log("Initializing contact page");
-  const contactForm = document.querySelector('.contact-form');
+  const contactForm = document.querySelector(".contact-form");
   if (contactForm) {
-    contactForm.classList.add('animate');
+    contactForm.classList.add("animate");
   } else {
     console.error("Contact form not found");
   }
@@ -362,23 +410,26 @@ function initializeContactPage() {
 
 function setupScrollAnimations() {
   console.log("Setting up scroll animations");
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  });
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    }
+  );
 
-  document.querySelectorAll('.animate-on-scroll').forEach(element => {
+  document.querySelectorAll(".animate-on-scroll").forEach((element) => {
     const rect = element.getBoundingClientRect();
     if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-      element.classList.add('animate');
+      element.classList.add("animate");
     } else {
       observer.observe(element);
     }
@@ -386,18 +437,20 @@ function setupScrollAnimations() {
 }
 function addBookImageClickListeners() {
   console.log("Adding book image click listeners");
-  const bookContainers = document.querySelectorAll('#top-rated .carousel-container, .carousel, #best-sellers');
-  bookContainers.forEach(container => {
-    container.addEventListener('click', handleBookImageClick);
+  const bookContainers = document.querySelectorAll(
+    "#top-rated .carousel-container, .carousel, #best-sellers"
+  );
+  bookContainers.forEach((container) => {
+    container.addEventListener("click", handleBookImageClick);
   });
 }
 
 function handleBookImageClick(event) {
-  const bookImg = event.target.closest('.book__img');
+  const bookImg = event.target.closest(".book__img");
   if (bookImg) {
-    const bookElement = bookImg.closest('.book');
+    const bookElement = bookImg.closest(".book");
     if (bookElement) {
-      const isbn = bookElement.getAttribute('data-key');
+      const isbn = bookElement.getAttribute("data-key");
       if (isbn) {
         event.preventDefault();
         console.log(`Navigating to book detail page for ISBN: ${isbn}`);
@@ -407,10 +460,11 @@ function handleBookImageClick(event) {
   }
 }
 
-
-
 function getCategoryId(category) {
-  return category.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
+  return category
+    .toLowerCase()
+    .replace(/ /g, "-")
+    .replace(/[^\w-]+/g, "");
 }
 
 function createCategorySection(category, categoryId) {
