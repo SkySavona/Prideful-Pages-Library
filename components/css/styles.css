@@ -1193,14 +1193,14 @@ MEDIA QUERIES
 @media (max-width: 490px) {
   .btn.header__button {
     width: 50%;
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
 @media (max-width: 480px) {
   .highlight {
     padding: 20px;
-    width: 80%;
+    width: 60%;
   }
 
   .highlight__img {
@@ -1214,7 +1214,8 @@ MEDIA QUERIES
   }
 
   .highlight__para {
-    font-size: 14px;
+    font-size: 12px;
+    margin: 0;
   }
 
   .about__para {
@@ -1227,20 +1228,11 @@ MEDIA QUERIES
   }
 }
 
-@media (max-width: 490px) {
-  .btn.header__button {
-    width: 50%;
-    font-size: 14px;
-  }
-}
 
 @media (max-width: 480px) {
   h1 {
     font-size: 48px;
   }
-  /* h2 {
-    font-size: 24px;
-  } */
   .stars-icon {
     scale: 0.8;
   }
