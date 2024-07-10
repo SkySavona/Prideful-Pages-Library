@@ -1338,13 +1338,13 @@ MEDIA QUERIES
   animation: slideUp 0.5s ease-out forwards;
 }
 
-.staggered-animation {
+/* .staggered-animation {
   opacity: 0;
 }
 
 .staggered-animation.animate {
   animation: slideUp 0.5s ease-out forwards;
-}
+} */
 
 h1,
 h2,
@@ -1356,10 +1356,9 @@ h3 {
   animation: pulse 2s;
 }
 
-.container,
-.book-detail-page .book-details,
+
 .about-content,
-.contact-page .contact-form,
+.contact-form,
 nav,
 p {
   animation: fadeIn 1s ease-out;
@@ -1369,8 +1368,8 @@ p {
   animation: slideUp 1s ease-out;
 }
 
-.staggered-animation {
+/* .staggered-animation {
   opacity: 0;
   animation: slideUp 1s ease-out forwards;
-}
+} */
 
