@@ -17,7 +17,7 @@ console.log("Script loaded");
 async function fetchBooks() {
   console.log("Fetching books...");
   try {
-    const response = await fetch("/Prideful-Pages-Library/all_books.json");
+    const response = await fetch("/all_books.json");
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     const data = await response.json();
     console.log("Books fetched successfully:", data.books.length);
