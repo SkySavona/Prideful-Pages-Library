@@ -165,32 +165,45 @@ async function initializeBooksPage() {
     return;
   }
 
-  const books = await fetchBooks();
-  if (books.length === 0) {
-    console.error("No books fetched");
-    return;
-  }
+  const loadingIndicator = document.createElement('div');
+  loadingIndicator.className = 'loading-overlay';
+  loadingIndicator.innerHTML = '<div class="loading-spinner"></div><p class="loading-spinner-text">Loading books...</p>';
+  document.body.appendChild(loadingIndicator);
 
-  const categorizedBooks = categorizeBooks(books);
-  console.log("Categorized books:", categorizedBooks);
-
-  categories.forEach((category) => {
-    const categoryId = getCategoryId(category);
-    const booksInCategory = categorizedBooks[category];
-
-    if (booksInCategory && booksInCategory.length > 0) {
-      console.log(`Rendering category: ${category}`);
-      const categorySection = createCategorySection(category, categoryId);
-      categoriesContainer.appendChild(categorySection);
-      renderBooks(booksInCategory, `#${categoryId}`);
-    } else {
-      console.log(`No books in category: ${category}`);
+  try {
+    const books = await fetchBooks();
+    if (books.length === 0) {
+      throw new Error("No books fetched");
     }
-  });
-  setupFilterDropdown();
-  setupCarousels();
-}
 
+    const categorizedBooks = categorizeBooks(books);
+    console.log("Categorized books:", categorizedBooks);
+
+    categories.forEach((category) => {
+      const categoryId = getCategoryId(category);
+      const booksInCategory = categorizedBooks[category];
+
+      if (booksInCategory && booksInCategory.length > 0) {
+        console.log(`Rendering category: ${category}`);
+        const categorySection = createCategorySection(category, categoryId);
+        categoriesContainer.appendChild(categorySection);
+        renderBooks(booksInCategory, `#${categoryId}`);
+      } else {
+        console.log(`No books in category: ${category}`);
+      }
+    });
+
+    setupFilterDropdown();
+    setupCarousels();
+
+  } catch (error) {
+    console.error("Error initializing books page:", error);
+    categoriesContainer.innerHTML = '<p class="error-message">There was an error loading the books. Please try refreshing the page.</p>';
+  } finally {
+    // Remove loading indicator
+    document.body.removeChild(loadingIndicator);
+  }
+}
 function categorizeBooks(books) {
   console.log("Categorizing books");
   const categorizedBooks = {};
@@ -274,8 +287,19 @@ function createBookHTML(book, index) {
   `;
 }
 
+// Modify initializeBookDetailPage function
 async function initializeBookDetailPage() {
   console.log("Initializing book detail page");
+  const detailContainer = document.getElementById("book-detail-container");
+  
+  if (!detailContainer) {
+    console.error("Book detail container not found");
+    return;
+  }
+
+  // Show loading indicator
+  detailContainer.innerHTML = '<div class="loading">Loading book details...</div>';
+
   const urlParams = new URLSearchParams(window.location.search);
   const isbn = urlParams.get("isbn");
 
@@ -285,23 +309,22 @@ async function initializeBookDetailPage() {
     return;
   }
 
-  const books = await fetchBooks();
-  const book = books.find((b) => b.isbn === isbn);
+  // Try to get book data from sessionStorage first
+  let book = JSON.parse(sessionStorage.getItem('currentBookDetail'));
+
+  if (!book) {
+    // If not in sessionStorage, fetch from server
+    const books = await fetchBooks();
+    book = books.find((b) => b.isbn === isbn);
+  }
 
   if (!book) {
     console.error("Book not found");
-    displayError(
-      "Book not found. Please try again or select a different book."
-    );
+    displayError("Book not found. Please try again or select a different book.");
     return;
   }
 
-  const detailContainer = document.getElementById("book-detail-container");
-  if (!detailContainer) {
-    console.error("Book detail container not found");
-    return;
-  }
-
+  // Remove loading indicator and render book details
   detailContainer.innerHTML = createBookDetailHTML(book);
   console.log("Book detail page rendered");
 }
@@ -420,7 +443,7 @@ function setupScrollAnimations() {
     {
       root: null,
       rootMargin: "0px",
-      threshold: 0.3,
+      threshold: 0.1,
     }
   );
 
@@ -446,7 +469,7 @@ function addBookImageClickListeners() {
   });
 }
 
-function handleBookImageClick(event) {
+async function handleBookImageClick(event) {
   const bookImg = event.target.closest(".book__img");
   if (bookImg) {
     const bookElement = bookImg.closest(".book");
@@ -454,10 +477,39 @@ function handleBookImageClick(event) {
       const isbn = bookElement.getAttribute("data-key");
       if (isbn) {
         event.preventDefault();
-        console.log(`Navigating to book detail page for ISBN: ${isbn}`);
-        window.location.href = `/components/bookDetail/book-detail.html?isbn=${isbn}`;
+        console.log(`Preparing to navigate to book detail page for ISBN: ${isbn}`);
+        await navigateToBookDetail(isbn);
       }
     }
+  }
+}
+
+async function navigateToBookDetail(isbn) {
+  // Show loading indicator
+  const loadingIndicator = document.createElement('div');
+  loadingIndicator.className = 'loading-overlay';
+  loadingIndicator.innerHTML = '<div class="loading-spinner"></div><p class="loading-spinner-text">Loading book...</p>';
+  document.body.appendChild(loadingIndicator);
+
+  try {
+    // Pre-fetch book data
+    const books = await fetchBooks();
+    const book = books.find(b => b.isbn === isbn);
+
+    if (!book) {
+      throw new Error('Book not found');
+    }
+
+    // Store book data in sessionStorage
+    sessionStorage.setItem('currentBookDetail', JSON.stringify(book));
+
+    // Navigate to book detail page
+    window.location.href = `/components/bookDetail/book-detail.html?isbn=${isbn}`;
+  } catch (error) {
+    console.error('Error navigating to book detail:', error);
+    alert('There was an error loading the book details. Please try again.');
+    // Remove loading indicator
+    document.body.removeChild(loadingIndicator);
   }
 }
 
