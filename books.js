@@ -424,12 +424,12 @@ function initializeContactPage() {
 }
 
 function setupScrollAnimations() {
-  console.log("Setting up scroll animations");
   const observer = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("animate");
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
           observer.unobserve(entry.target);
         }
       });
@@ -442,12 +442,7 @@ function setupScrollAnimations() {
   );
 
   document.querySelectorAll(".animate-on-scroll").forEach((element) => {
-    const rect = element.getBoundingClientRect();
-    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-      element.classList.add("animate");
-    } else {
-      observer.observe(element);
-    }
+    observer.observe(element);
   });
 }
 
