@@ -2,17 +2,55 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="../../assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../assets/favicon.ico" type="image/x-icon" />
     <title>Prideful Pages | Book Detail</title>
     <link rel="stylesheet" href="../css/styles.css" />
     <script src="../../index.js" defer></script>
-    <script src="/books.js" defer></script>
-    <script src="../../all_books.json" defer></script>
+    <script src="../../books.js" defer></script>
     <script
       src="https://kit.fontawesome.com/5f84395d1e.js"
       crossorigin="anonymous"
     ></script>
+    <meta
+      name="description"
+      content="Prideful Pages - Your vibrant hub for LGBTQIA+ books! Discover and explore a diverse collection of queer stories, from romances to adventures, and support talented LGBTQIA+ authors."
+    />
+    <meta
+      name="keywords"
+      content="LGBTQIA+ books, LGBT books, LGBTQ books, queer literature, diverse voices, LGBTQIA+ authors, Prideful Pages"
+    />
+    <meta name="author" content="Prideful Pages" />
+    <meta property="og:title" content="Prideful Pages | Book Detail" />
+    <meta
+      property="og:description"
+      content="Welcome to Prideful Pages, your vibrant hub for LGBTQIA+ books! Discover a vast collection of diverse and inclusive stories."
+    />
+    <meta property="og:image" content="../../assets/Prideful Pages LOGO.png" />
+    <meta property="og:url" content="www.pridefulpages.com/book-detail" />
+    <meta property="og:type" content="website" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Prideful Pages",
+        "url": "www.pridefulpages.com",
+        "description": "Welcome to Prideful Pages, your vibrant hub for LGBTQIA+ books! We offer a diverse collection of books showcasing the richness of LGBTQIA+ experiences, from heartwarming romances to thrilling adventures."
+      }
+    </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-C4WZ0VW2J0"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-C4WZ0VW2J0");
+    </script>
   </head>
   <body class="book-detail-page">
     <nav>
@@ -30,7 +68,9 @@
             <a href="../about/about.html" class="nav__link contact">About</a>
           </li>
           <li>
-            <a href="../contact/contact.html" class="nav__link contact">Contact</a>
+            <a href="../contact/contact.html" class="nav__link contact"
+              >Contact</a
+            >
           </li>
           <li>
             <a href="../../books.html" class="nav__link nav__link--primary"
@@ -47,22 +87,34 @@
           </button>
           <ul class="menu__links">
             <li class="menu__list">
-              <a href="../../index.html" class="menu__link" onclick="closeMenu()"
+              <a
+                href="../../index.html"
+                class="menu__link"
+                onclick="closeMenu()"
                 >Home</a
               >
             </li>
             <li class="menu__list">
-              <a href="../about/about.html" class="menu__link" onclick="closeMenu()"
+              <a
+                href="../about/about.html"
+                class="menu__link"
+                onclick="closeMenu()"
                 >About</a
               >
             </li>
             <li class="menu__list">
-              <a href="../contact/contact.html" class="menu__link" onclick="closeMenu()"
+              <a
+                href="../contact/contact.html"
+                class="menu__link"
+                onclick="closeMenu()"
                 >Contact</a
               >
             </li>
             <li class="menu__list">
-              <a href="../../books.html" class="menu__link" onclick="closeMenu()"
+              <a
+                href="../../books.html"
+                class="menu__link"
+                onclick="closeMenu()"
                 >Books</a
               >
             </li>

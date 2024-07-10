@@ -3,14 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prideful Pages | LGBTQIA+ E-Library Catalog</title>
-    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+    <title>Prideful Pages | LGBTQIA+ Books | E-Library Catalog</title>
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./components/css/styles.css" />
     <script src="./index.js" defer></script>
     <script src="./books.js" defer></script>
     <script src="./all_books.json" defer></script>
-    <script src="https://kit.fontawesome.com/5f84395d1e.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/5f84395d1e.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta
+      name="description"
+      content="Welcome to Prideful Pages, your vibrant hub for LGBTQIA+ books. Explore our e-library catalog of queer literature, from heartwarming romances to thrilling adventures."
+    />
+    <meta
+      name="keywords"
+      content="LGBTQIA+ books, LGBT books, LGBTQ books, e-library, queer literature, diverse voices, LGBTQIA+ authors, Prideful Pages"
+    />
+    <meta name="author" content="Prideful Pages" />
+    <meta
+      property="og:title"
+      content="Prideful Pages | LGBTQIA+ Books | E-Library Catalog"
+    />
+    <meta
+      property="og:description"
+      content="Welcome to Prideful Pages, your vibrant hub for LGBTQIA+ books. Explore our e-library catalog of queer literature, from heartwarming romances to thrilling adventures."
+    />
+    <meta property="og:image" content="./assets/Prideful Pages LOGO.png" />
+    <meta property="og:url" content="www.pridefulpages.com" />
+    <meta property="og:type" content="website" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Prideful Pages",
+        "url": "www.pridefulpages.com",
+        "description": "Welcome to Prideful Pages, your vibrant hub for LGBTQIA+ books. Explore our e-library catalog of queer literature, from heartwarming romances to thrilling adventures."
+      }
+    </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-C4WZ0VW2J0"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-C4WZ0VW2J0");
+    </script>
   </head>
+
   <body class="home-page">
     <nav>
       <div class="nav__container">
@@ -36,9 +81,7 @@
             >
           </li>
           <li>
-            <a
-              href="./books.html"
-              class="nav__link nav__link--primary"
+            <a href="./books.html" class="nav__link nav__link--primary"
               >Books</a
             >
           </li>
@@ -52,10 +95,7 @@
           </button>
           <ul class="menu__links">
             <li class="menu__list">
-              <a
-                href="./index.html"
-                class="menu__link"
-                onclick="closeMenu()"
+              <a href="./index.html" class="menu__link" onclick="closeMenu()"
                 >Home</a
               >
             </li>
@@ -76,10 +116,7 @@
               >
             </li>
             <li class="menu__list">
-              <a
-                href="./books.html"
-                class="menu__link"
-                onclick="closeMenu()"
+              <a href="./books.html" class="menu__link" onclick="closeMenu()"
                 >Books</a
               >
             </li>
@@ -114,7 +151,10 @@
               Discover Our <span class="rainbow">Rainbow</span> of Books!
             </h2>
             <div class="highlight__wrapper">
-              <div class="highlight animate-on-scroll" style="--animate-delay: 0s;">
+              <div
+                class="highlight animate-on-scroll"
+                style="--animate-delay: 0s"
+              >
                 <div class="highlight__img">
                   <i class="fas fa-star" aria-hidden="true"></i>
                 </div>
@@ -124,7 +164,10 @@
                   readers just like you.
                 </p>
               </div>
-              <div class="highlight animate-on-scroll" style="--animate-delay: 0.3s;">
+              <div
+                class="highlight animate-on-scroll"
+                style="--animate-delay: 0.3s"
+              >
                 <div class="highlight__img">
                   <i class="fas fa-book-open" aria-hidden="true"></i>
                 </div>
@@ -134,7 +177,10 @@
                   romances to thrilling adventures
                 </p>
               </div>
-              <div class="highlight animate-on-scroll" style="--animate-delay: 0.6s;">
+              <div
+                class="highlight animate-on-scroll"
+                style="--animate-delay: 0.6s"
+              >
                 <div class="highlight__img">
                   <i class="fas fa-feather-alt" aria-hidden="true"></i>
                 </div>
@@ -152,12 +198,17 @@
       <section class="featured-books">
         <div class="container">
           <div class="row">
-            <img class="stars-icon animate-on-scroll" src="./assets/stars.png" alt="">
-            <h2 class="animate-on-scroll"><i>Best-Selling </i><span class="rainbow">LGBTQIA+</span> Books</h2>
-              <div id="best-sellers" class="featured-books books"></div>
-              <div class="books top-rated-books" id="booksWrapper"></div>
-              <!-- Books will be dynamically inserted here -->
-            </div>
+            <img
+              class="stars-icon animate-on-scroll"
+              src="./assets/stars.png"
+              alt=""
+            />
+            <h2 class="animate-on-scroll">
+              <i>Best-Selling </i><span class="rainbow">LGBTQIA+</span> Books
+            </h2>
+            <div id="best-sellers" class="featured-books books"></div>
+            <div class="books top-rated-books" id="booksWrapper"></div>
+            <!-- Books will be dynamically inserted here -->
           </div>
         </div>
       </section>
@@ -195,9 +246,7 @@
             <a href="./components/contact/contact.html" class="footer__link"
               >Contact</a
             >
-            <a href="./books.html" class="footer__link"
-              >Books</a
-            >
+            <a href="./books.html" class="footer__link">Books</a>
             <a href="./components/policies/policies.html" class="footer__link"
               >Policies</a
             >

@@ -4,13 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prideful Pages | Books</title>
-    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./components/css/styles.css" />
     <script src="./index.js" defer></script>
     <script src="./books.js" defer></script>
-    <script src="./all_books.json"></script>
-    <script src="https://kit.fontawesome.com/5f84395d1e.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/5f84395d1e.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta
+      name="description"
+      content="Discover the best LGBTQIA+ books at Prideful Pages. Explore a diverse collection of queer literature, from heartwarming romances to thrilling adventures."
+    />
+    <meta
+      name="keywords"
+      content="LGBTQIA+ books, LGBT books, LGBTQ books, queer literature, diverse voices, LGBTQIA+ authors, Prideful Pages"
+    />
+    <meta name="author" content="Prideful Pages" />
+    <meta property="og:title" content="Prideful Pages | Books" />
+    <meta
+      property="og:description"
+      content="Discover the best LGBTQIA+ books at Prideful Pages. Explore a diverse collection of queer literature, from heartwarming romances to thrilling adventures."
+    />
+    <meta property="og:image" content="./assets/Prideful Pages LOGO.png" />
+    <meta property="og:url" content="www.pridefulpages.com/books" />
+    <meta property="og:type" content="website" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Prideful Pages",
+        "url": "www.pridefulpages.com/books",
+        "description": "Discover the best LGBTQIA+ books at Prideful Pages. Explore a diverse collection of queer literature, from heartwarming romances to thrilling adventures."
+      }
+    </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-C4WZ0VW2J0"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-C4WZ0VW2J0");
+    </script>
   </head>
+
   <body class="books-page">
     <nav>
       <div class="nav__container">
@@ -26,10 +67,14 @@
             <a href="./index.html" class="nav__link home">Home</a>
           </li>
           <li>
-            <a href="./components/about/about.html" class="nav__link contact">About</a>
+            <a href="./components/about/about.html" class="nav__link contact"
+              >About</a
+            >
           </li>
           <li>
-            <a href="./components/contact/contact.html" class="nav__link contact"
+            <a
+              href="./components/contact/contact.html"
+              class="nav__link contact"
               >Contact</a
             >
           </li>
@@ -48,10 +93,7 @@
           </button>
           <ul class="menu__links">
             <li class="menu__list">
-              <a
-                href="./index.html"
-                class="menu__link"
-                onclick="closeMenu()"
+              <a href="./index.html" class="menu__link" onclick="closeMenu()"
                 >Home</a
               >
             </li>
@@ -72,10 +114,7 @@
               >
             </li>
             <li class="menu__list">
-              <a
-                href="./books.html"
-                class="menu__link"
-                onclick="closeMenu()"
+              <a href="./books.html" class="menu__link" onclick="closeMenu()"
                 >Books</a
               >
             </li>
@@ -110,8 +149,7 @@
             </div>
             <div class="books__loading"></div>
             <div id="categories" class="categories"></div>
-              <!-- Book categories will be dynamically inserted here -->
-            </div>
+            <!-- Book categories will be dynamically inserted here -->
           </div>
         </div>
       </section>
@@ -142,8 +180,12 @@
           </a>
           <div class="footer__list">
             <a href="./index.html" class="footer__link">Home</a>
-            <a href="./components/about/about.html" class="footer__link">About</a>
-            <a href="./components/contact/contact.html" class="footer__link">Contact</a>
+            <a href="./components/about/about.html" class="footer__link"
+              >About</a
+            >
+            <a href="./components/contact/contact.html" class="footer__link"
+              >Contact</a
+            >
             <a href="./books.html" class="footer__link">Books</a>
             <a href="./components/policies/policies.html" class="footer__link"
               >Policies</a
