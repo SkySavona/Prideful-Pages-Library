@@ -47,3 +47,18 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Book details link handler initialized");
   }
 });
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  if (!localStorage.getItem('cookiesAccepted')) {
+      document.getElementById('cookieBanner').style.display = 'block';
+  }
+
+  document.getElementById('acceptCookies').addEventListener('click', () => {
+      localStorage.setItem('cookiesAccepted', 'true');
+      document.getElementById('cookieBanner').style.display = 'none';
+  });
+
+  document.getElementById('declineCookies').addEventListener('click', () => {
+      document.getElementById('cookieBanner').style.display = 'none';
+  });
+});
