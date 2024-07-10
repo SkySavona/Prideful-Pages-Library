@@ -2,60 +2,79 @@ const categories = [
   "Top-Rated ⭐️",
   "Fiction 🛸",
   "Non-Fiction 📚",
-  "Non-Fiction",
   "Fantasy 🧙‍♂️",
   "Mystery 🕵️",
   "Romance 💖",
-  // , "Thriller 😱", "Biography 👤", "History 🏛️",
-  // "Science 🔬", "Philosophy 🤔", "Poetry 🎭",
 ];
 
-document.addEventListener("DOMContentLoaded", initializePage);
+let booksCache = null;
+let isInitialized = false;
 
 console.log("Script loaded");
 
 async function fetchBooks() {
+  if (booksCache) return booksCache;
+
   console.log("Fetching books...");
   try {
     const response = await fetch("/all_books.json");
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    const data = await response.json();
-    console.log("Books fetched successfully:", data.books.length);
-    return data.books;
+    const text = await response.text(); // Get the raw text first
+    await new Promise(resolve => setTimeout(resolve, 100)); // Add a small delay
+    const data = JSON.parse(text); // Then parse it
+    booksCache = data.books;
+    console.log("Books fetched successfully:", booksCache.length);
+    return booksCache;
   } catch (error) {
     console.error("Error fetching books data:", error);
-    return [];
+    if (error instanceof SyntaxError) {
+      console.error("JSON parsing error. Please check the all_books.json file for syntax errors.");
+      console.error("Received data:", text); // Log the received data for debugging
+    }
+    throw error;
   }
 }
-
 async function initializePage() {
+  if (isInitialized) {
+    console.log("Page already initialized");
+    return;
+  }
+
   console.log("Initializing page");
   const pageType = document.body.className;
   console.log("Page type:", pageType);
 
-  switch (pageType) {
-    case "books-page":
-      await initializeBooksPage();
-      break;
-    case "book-detail-page":
-      await initializeBookDetailPage();
-      break;
-    case "home-page":
-      await initializeHomePage();
-      break;
-    case "about-page":
-      initializeAboutPage();
-      break;
-    case "contact-page":
-      initializeContactPage();
-      break;
-    default:
-      console.log("Unknown page type");
-  }
+  try {
+    switch (pageType) {
+      case "books-page":
+        await initializeBooksPage();
+        break;
+      case "book-detail-page":
+        await initializeBookDetailPage();
+        break;
+      case "home-page":
+        await initializeHomePage();
+        break;
+      case "about-page":
+        initializeAboutPage();
+        break;
+      case "contact-page":
+        initializeContactPage();
+        break;
+      default:
+        console.log("Unknown page type");
+    }
 
-  setupScrollAnimations();
-  addBookImageClickListeners();
+    setupScrollAnimations();
+    addBookImageClickListeners();
+    console.log("Page initialization complete");
+    isInitialized = true;
+  } catch (error) {
+    console.error("Error during page initialization:", error);
+    displayErrorMessage("An error occurred while loading the page. Please try refreshing.");
+  }
 }
+
 
 function setupFilterDropdown() {
   const filterSelect = document.getElementById("filter-select");
@@ -107,10 +126,7 @@ function setupCarousels() {
 
         if (direction === "next") {
           newScrollPosition = Math.min(currentScroll + scrollAmount, maxScroll);
-          if (
-            newScrollPosition === maxScroll ||
-            newScrollPosition === currentScroll
-          ) {
+          if (newScrollPosition === maxScroll || newScrollPosition === currentScroll) {
             newScrollPosition = 0;
           }
         } else {
@@ -203,6 +219,7 @@ async function initializeBooksPage() {
     document.body.removeChild(loadingIndicator);
   }
 }
+
 function categorizeBooks(books) {
   console.log("Categorizing books");
   const categorizedBooks = {};
@@ -260,28 +277,18 @@ function renderBooks(booksToRender, container) {
 
 function createBookHTML(book, index) {
   return `
-    <div class="book animate-on-scroll" data-key="${
-      book.isbn
-    }" style="animation-delay: ${index * 0.05}s;">
+    <div class="book animate-on-scroll" data-key="${book.isbn}" style="animation-delay: ${index * 0.05}s;">
       <figure class="book__img--wrapper">
-        <img class="book__img" src="${
-          book.cover_img || "/assets/no_img_book_cover.svg"
-        }" alt="${
-    book.title
-  }" loading="lazy" onerror="this.onerror=null; this.src='/assets/no_img_book_cover.svg';">
+        <img class="book__img" src="${book.cover_img || "/assets/no_img_book_cover.svg"}" alt="${book.title}" loading="lazy" onerror="this.onerror=null; this.src='/assets/no_img_book_cover.svg';">
       </figure>
       <div class="book__title">${book.title}</div>
       <div class="book__authors">${book.author}</div>
       <div class="book__rating">${
         book.star_rating
-          ? `${book.star_rating.toFixed(1)} ${renderStarRating(
-              book.star_rating
-            )} <br> (${book.rating_count.toLocaleString()})`
+          ? `${book.star_rating.toFixed(1)} ${renderStarRating(book.star_rating)} <br> (${book.rating_count.toLocaleString()})`
           : "Not rated"
       }</div>
-      <a href="/components/bookDetail/book-detail.html?isbn=${
-        book.isbn
-      }" target="_blank" class="btn">View Details</a>
+      <a href="/components/bookDetail/book-detail.html?isbn=${book.isbn}" target="_blank" class="btn">View Details</a>
     </div>
   `;
 }
@@ -326,9 +333,7 @@ async function initializeBookDetailPage() {
 function createBookDetailHTML(book) {
   return `
     <div class="book-cover">
-      <img src="${
-        book.cover_img || "/assets/no_img_book_cover.svg"
-      }" alt="${book.title}" class="book-img">
+      <img src="${book.cover_img || "/assets/no_img_book_cover.svg"}" alt="${book.title}" class="book-img">
     </div>
     <div class="book-info">
       <h1 class="book-title">${book.title}</h1>
@@ -337,9 +342,7 @@ function createBookDetailHTML(book) {
         ${renderStarRating(book.star_rating)} ${book.star_rating.toFixed(1)} 
         (${book.rating_count.toLocaleString()} ratings)
       </div>
-      <p class="book-publish-date"><strong>Published:</strong> ${
-        book.publish_date
-      }</p>
+      <p class="book-publish-date"><strong>Published:</strong> ${book.publish_date}</p>
       <p class="book-isbn"><strong>ISBN:</strong> ${book.isbn}</p>
       <p class="book-category"><strong>Category:</strong> ${book.category}</p>
       <div class="book-bio">
@@ -356,9 +359,7 @@ function createBookDetailHTML(book) {
         <h2>Additional Information</h2>
         <p>${book.other_info}</p>
       </div>
-      <a href="${createAmazonAffiliateLink(
-        book
-      )}" class="btn" target="_blank">View on Amazon</a>
+      <a href="${createAmazonAffiliateLink(book)}" class="btn" target="_blank">View on Amazon</a>
     </div>
   `;
 }
@@ -374,16 +375,12 @@ function renderStarRating(rating) {
   const fullStars = Math.floor(rating);
   const halfStar = rating % 1 >= 0.5 ? 1 : 0;
   const emptyStars = 5 - fullStars - halfStar;
-  return `${"★".repeat(fullStars)}${halfStar ? "½" : ""}${"☆".repeat(
-    emptyStars
-  )}`;
+  return `${"★".repeat(fullStars)}${halfStar ? "½" : ""}${"☆".repeat(emptyStars)}`;
 }
 
 function createAmazonAffiliateLink(book) {
   const searchTerm = book.isbn || `${book.title} ${book.author}`;
-  return `https://www.amazon.com/s?k=${encodeURIComponent(
-    searchTerm
-  )}&tag=eduhub0a-20`;
+  return `https://www.amazon.com/s?k=${encodeURIComponent(searchTerm)}&tag=eduhub0a-20`;
 }
 
 async function initializeHomePage() {
@@ -392,15 +389,18 @@ async function initializeHomePage() {
   if (!bestSellersContainer) {
     console.error("Best sellers container not found");
     return;
-    
   }
   
-  const books = await fetchBooks();
-  const topRatedBooks = books
-    .filter((book) => book.star_rating >= 4.5 && book.rating_count >= 1000)
-    .slice(0, 16);
-  renderBooks(topRatedBooks, "#best-sellers");
-  console.log("Home page initialized");
+  try {
+    const books = await fetchBooks();
+    const topRatedBooks = books
+      .filter((book) => book.star_rating >= 4.5 && book.rating_count >= 1000)
+      .slice(0, 16);
+    renderBooks(topRatedBooks, "#best-sellers");
+    console.log("Home page initialized");
+  } catch (error) {
+    console.error("Error initializing home page:", error);
+  }
 }
 
 function initializeAboutPage() {
@@ -441,12 +441,9 @@ function setupScrollAnimations() {
     }
   );
 
-  document.querySelectorAll(".animate-on-scroll").forEach((element) => {
-    observer.observe(element);
+  document.querySelectorAll(".animate-on-scroll").forEach((element) => {observer.observe(element);
   });
 }
-
-document.addEventListener('DOMContentLoaded', setupScrollAnimations);
 
 function addBookImageClickListeners() {
   console.log("Adding book image click listeners");
@@ -517,6 +514,19 @@ function createCategorySection(category, categoryId) {
     </div>
   `;
   return section;
+}
+
+function displayErrorMessage(message) {
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'error-message';
+  errorDiv.textContent = message;
+  document.body.insertBefore(errorDiv, document.body.firstChild);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializePage);
+} else {
+  initializePage();
 }
 
 console.log("Script initialization complete");
