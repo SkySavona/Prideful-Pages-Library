@@ -200,7 +200,6 @@ async function initializeBooksPage() {
     console.error("Error initializing books page:", error);
     categoriesContainer.innerHTML = '<p class="error-message">There was an error loading the books. Please try refreshing the page.</p>';
   } finally {
-    // Remove loading indicator
     document.body.removeChild(loadingIndicator);
   }
 }
@@ -263,7 +262,7 @@ function createBookHTML(book, index) {
   return `
     <div class="book animate-on-scroll" data-key="${
       book.isbn
-    }" style="animation-delay: ${index * 0.1}s;">
+    }" style="animation-delay: ${index * 0.05}s;">
       <figure class="book__img--wrapper">
         <img class="book__img" src="${
           book.cover_img || "/assets/no_img_book_cover.svg"
@@ -287,7 +286,6 @@ function createBookHTML(book, index) {
   `;
 }
 
-// Modify initializeBookDetailPage function
 async function initializeBookDetailPage() {
   console.log("Initializing book detail page");
   const detailContainer = document.getElementById("book-detail-container");
@@ -297,7 +295,6 @@ async function initializeBookDetailPage() {
     return;
   }
 
-  // Show loading indicator
   detailContainer.innerHTML = '<div class="loading">Loading book details...</div>';
 
   const urlParams = new URLSearchParams(window.location.search);
@@ -309,11 +306,9 @@ async function initializeBookDetailPage() {
     return;
   }
 
-  // Try to get book data from sessionStorage first
   let book = JSON.parse(sessionStorage.getItem('currentBookDetail'));
 
   if (!book) {
-    // If not in sessionStorage, fetch from server
     const books = await fetchBooks();
     book = books.find((b) => b.isbn === isbn);
   }
@@ -324,7 +319,6 @@ async function initializeBookDetailPage() {
     return;
   }
 
-  // Remove loading indicator and render book details
   detailContainer.innerHTML = createBookDetailHTML(book);
   console.log("Book detail page rendered");
 }
@@ -485,14 +479,12 @@ async function handleBookImageClick(event) {
 }
 
 async function navigateToBookDetail(isbn) {
-  // Show loading indicator
   const loadingIndicator = document.createElement('div');
   loadingIndicator.className = 'loading-overlay';
   loadingIndicator.innerHTML = '<div class="loading-spinner"></div><p class="loading-spinner-text">Loading book...</p>';
   document.body.appendChild(loadingIndicator);
 
   try {
-    // Pre-fetch book data
     const books = await fetchBooks();
     const book = books.find(b => b.isbn === isbn);
 
@@ -500,15 +492,12 @@ async function navigateToBookDetail(isbn) {
       throw new Error('Book not found');
     }
 
-    // Store book data in sessionStorage
     sessionStorage.setItem('currentBookDetail', JSON.stringify(book));
 
-    // Navigate to book detail page
     window.location.href = `/components/bookDetail/book-detail.html?isbn=${isbn}`;
   } catch (error) {
     console.error('Error navigating to book detail:', error);
     alert('There was an error loading the book details. Please try again.');
-    // Remove loading indicator
     document.body.removeChild(loadingIndicator);
   }
 }
