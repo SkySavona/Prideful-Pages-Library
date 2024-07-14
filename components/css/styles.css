@@ -137,6 +137,7 @@ nav {
   height: 100px;
   display: flex;
   padding: 2rem 0;
+  
   text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -153,7 +154,7 @@ nav {
 .logo {
   width: 60px;
   left: 20px;
-  padding-top: 20px;
+  padding-top: 10px;
   transition: transform 300ms ease-in-out;
   transform: scale(1);
 }
@@ -884,6 +885,12 @@ footer .container {
 
 /* CONTACT */
 
+.container.contact-form,
+.container.books-page {
+    margin-top: 20px;
+  
+}
+
 #contactForm {
   width: 50%;
   margin: 0 auto;
@@ -969,6 +976,10 @@ button:active {
   justify-content: center;
   align-items: center;
   padding: 20px;
+
+}
+.container.about-us {
+  margin-top: 20px;
 }
 
 .about__para {
@@ -1092,13 +1103,7 @@ ul {
 }
 
 @media (max-width: 768px) {
-  /* header {
-    margin-top: 0px;
-    padding-top: 20px;
-  } */
-  .header__img--wrapper img {
-    /* max-width: 80%; */
-  }
+
 
   .nav__links {
     display: none;
@@ -1185,7 +1190,7 @@ ul {
   .hero {
     height: 90vh;
   }
-}
+
   h2 {
     font-size: 30px;
     margin-bottom: 16px;
