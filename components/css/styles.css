@@ -1,12 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #71c4c8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader {
+  width: 100px;
+  height: 100px;
+  border: 5px solid white;
+  border-top: 5px solid #606266;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "playfair display", sans-serif;
+  font-family: "Playfair Display", sans-serif;
 }
 
 html {
+  min-height: 100%;
   scroll-behavior: smooth;
   background-image: url(../../assets/papyrus.webp) !important;
 }
@@ -25,8 +58,18 @@ main {
   flex: 1;
 }
 
+.hero {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
 .container {
-  padding: 30px 20px;
+  padding: 0 20px;
+  margin: 80px auto;
 }
 
 .row {
@@ -43,8 +86,6 @@ main {
 }
 
 p {
-  display: flex;
-  flex-wrap: wrap;
   line-height: 2;
   text-align: center;
   color: #7576aa;
@@ -64,28 +105,14 @@ a {
 
 .rainbow {
   font-weight: 900;
-  background-image: linear-gradient(
-    to bottom,
-    #f27f8f,
-    /* RED */ #ebac76,
-    /* ORANGE */ #ecd58d,
-    /* YELLOW */ #b5d488,
-    /* GREEN */ #71c4c8,
-    /* TEAL */ #65a5ca,
-    /* BLUE */ #7576aa,
-    /* PURPLE */ #b179aa /* PINK */
-  );
+  background-image: linear-gradient(to bottom, #f27f8f, #ebac76, #ecd58d, #b5d488, #71c4c8, #65a5ca, #7576aa, #b179aa);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
 }
 
-/* 
-
-HELPER CLASSES
-
-*/
+/* HELPER CLASSES */
 
 .text-center {
   text-align: center;
@@ -104,17 +131,12 @@ img {
   height: auto;
 }
 
-/* 
-
-NAVIGATION
-
-*/
+/* NAVIGATION */
 
 nav {
   height: 100px;
   display: flex;
-  padding-top: 32px;
-  padding-right: 20px;
+  padding: 2rem 0;
   text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -129,7 +151,7 @@ nav {
 }
 
 .logo {
-  width: 80px;
+  width: 60px;
   left: 20px;
   padding-top: 20px;
   transition: transform 300ms ease-in-out;
@@ -202,11 +224,7 @@ nav {
   border: visible;
 }
 
-/* 
-
-BURGER MENU
-
-*/
+/* BURGER MENU */
 
 .btn__menu {
   max-width: 50px;
@@ -217,7 +235,6 @@ BURGER MENU
   color: #b179aa;
   display: none;
   cursor: pointer;
-  padding: none !important;
 }
 
 button.btn__menu:hover {
@@ -309,45 +326,24 @@ i.fas.fa-times:hover {
   color: white;
 }
 
-/* 
-
-HEADER
-
-*/
-
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 64px;
-}
+/* HEADER */
 
 .header__container {
   width: 100%;
-  max-width: 1400px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .btn.header__button {
   width: 30%;
-  margin-bottom: px;
 }
 
 .header__img--wrapper {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .header__img {
-  max-height: 80vh;
-  max-width: 100%;
-  object-fit: contain;
+  max-height: 50vh;
   margin-top: 32px;
 }
 
@@ -358,7 +354,7 @@ header {
 }
 
 h1 {
-  font-size: 64px;
+  font-size: 58px;
   color: #71c4c8;
   padding: 0 20px;
   text-align: center;
@@ -366,7 +362,7 @@ h1 {
 }
 
 h2 {
-  font-size: 48px;
+  font-size: 40px;
   margin-bottom: 32px;
   text-align: center;
   color: #7576aa;
@@ -379,11 +375,7 @@ h3 {
   text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
-/* 
-
-BUTTONS
-
-*/
+/* BUTTONS */
 
 .btn:hover {
   transform: scale(1.1);
@@ -395,11 +387,7 @@ BUTTONS
   transform: translateY(1px);
 }
 
-/* 
-
-HIGHLIGHTS
-
-*/
+/* HIGHLIGHTS */
 
 #highlights {
   position: relative;
@@ -462,11 +450,7 @@ HIGHLIGHTS
   line-height: 2;
 }
 
-/* 
-
-FEATURED AND CAROUSEL
-
-*/
+/* FEATURED AND CAROUSEL */
 
 .featured-books {
   margin-top: 40px;
@@ -476,7 +460,6 @@ FEATURED AND CAROUSEL
   height: 200px;
   width: 200px;
   margin: -64px;
-  margin-top: -160px;
 }
 
 .books {
@@ -651,11 +634,7 @@ FEATURED AND CAROUSEL
   right: 10px;
 }
 
-/* 
-
-BOOKS PAGES
-
-*/
+/* BOOKS PAGES */
 
 .books__container {
   padding: 24px 0;
@@ -687,11 +666,7 @@ BOOKS PAGES
   max-width: 200px;
 }
 
-/* 
-
-BOOK DETAILS 
-
-*/
+/* BOOK DETAILS */
 
 .book-details {
   display: flex;
@@ -837,19 +812,19 @@ BOOK DETAILS
   transform: translateY(1px);
 }
 
-/* 
-
-FOOTER
-
-*/
+/* FOOTER */
 
 footer {
   background-color: rgba(101, 165, 202, 0.8);
   box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+ 
+}
+footer .container {
+    margin: 2rem auto;
 }
 
 .footer__logo {
-  width: 80px;
+  width: 60px;
   transition: transform 300ms ease-in-out;
   transform: scale(1);
 }
@@ -907,11 +882,7 @@ footer {
   text-align: center;
 }
 
-/* 
-
-CONTACT
-
-*/
+/* CONTACT */
 
 #contactForm {
   width: 50%;
@@ -990,11 +961,7 @@ button:active {
   color: #7576aa;
 }
 
-/* 
-
-ABOUT US 
-
-*/
+/* ABOUT US */
 
 .container.about__us {
   display: flex;
@@ -1039,11 +1006,7 @@ ul {
   padding: 0;
 }
 
-/* 
-
-COOKIE BANNER
-
-*/
+/* COOKIE BANNER */
 
 .cookie-banner {
   display: none;
@@ -1090,11 +1053,7 @@ COOKIE BANNER
   text-decoration: underline;
 }
 
-/* 
-
-MEDIA QUERIES 
-
-*/
+/* MEDIA QUERIES */
 
 @media (max-width: 1200px) {
   .about__para {
@@ -1133,12 +1092,12 @@ MEDIA QUERIES
 }
 
 @media (max-width: 768px) {
-  header {
+  /* header {
     margin-top: 0px;
     padding-top: 20px;
-  }
+  } */
   .header__img--wrapper img {
-    max-width: 80%;
+    /* max-width: 80%; */
   }
 
   .nav__links {
@@ -1223,6 +1182,10 @@ MEDIA QUERIES
   .btn.header__button {
     width: 50%;
   }
+  .hero {
+    height: 90vh;
+  }
+}
   h2 {
     font-size: 30px;
     margin-bottom: 16px;
@@ -1288,27 +1251,50 @@ MEDIA QUERIES
 
 @media (max-width: 480px) {
   h1 {
-    font-size: 48px;
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 28px;
   }
   .stars-icon {
     scale: 0.8;
   }
 }
 @media (max-width: 440px) {
-  h1 {
-    font-size: 44px;
-  }
+
   .stars-icon {
     scale: 0.8;
   }
+  
 }
+
+@media (max-width: 400px) {
+    .hero {
+        height: 90vh;
+      }
+    }
 
 @media (max-width: 390px) {
   .btn.header__button {
     width: 70%;
     font-size: 14px;
   }
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+
+  .header__img--wrapper {
+    height: 50%;
+  }
+  .hero {
+    height: 80vh;
+  }
 }
+
+
 
 @media (max-width: 320px) {
   .highlight {

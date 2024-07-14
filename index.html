@@ -47,6 +47,7 @@
       src="https://www.googletagmanager.com/gtag/js?id=G-C4WZ0VW2J0"
     ></script>
     <script>
+      
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
@@ -55,34 +56,36 @@
       gtag("config", "G-C4WZ0VW2J0");
     </script>
   </head>
-
+  <div id="preloader">
+    <div class="loader"></div>
+    </div>
   <body class="home-page">
     <nav>
       <div class="nav__container">
         <a href="./index.html">
           <img
-            src="./assets/Prideful Pages LOGO.png"
-            class="logo"
-            alt="prideful pages logo"
+          src="./assets/Prideful Pages LOGO.png"
+          class="logo"
+          alt="prideful pages logo"
           />
         </a>
         <ul class="nav__links">
           <li><a href="./index.html" class="nav__link home">Home</a></li>
           <li>
             <a href="./components/about/about.html" class="nav__link contact"
-              >About</a
+            >About</a
             >
           </li>
           <li>
             <a
-              href="./components/contact/contact.html"
-              class="nav__link contact"
-              >Contact</a
+            href="./components/contact/contact.html"
+            class="nav__link contact"
+            >Contact</a
             >
           </li>
           <li>
             <a href="./books.html" class="nav__link nav__link--primary"
-              >Books</a
+            >Books</a
             >
           </li>
         </ul>
@@ -96,28 +99,28 @@
           <ul class="menu__links">
             <li class="menu__list">
               <a href="./index.html" class="menu__link" onclick="closeMenu()"
-                >Home</a
+              >Home</a
               >
             </li>
             <li class="menu__list">
               <a
-                href="./components/about/about.html"
-                class="menu__link"
-                onclick="closeMenu()"
-                >About</a
+              href="./components/about/about.html"
+              class="menu__link"
+              onclick="closeMenu()"
+              >About</a
               >
             </li>
             <li class="menu__list">
               <a
-                href="./components/contact/contact.html"
-                class="menu__link"
-                onclick="closeMenu()"
-                >Contact</a
+              href="./components/contact/contact.html"
+              class="menu__link"
+              onclick="closeMenu()"
+              >Contact</a
               >
             </li>
             <li class="menu__list">
               <a href="./books.html" class="menu__link" onclick="closeMenu()"
-                >Books</a
+              >Books</a
               >
             </li>
           </ul>
@@ -125,7 +128,9 @@
       </div>
     </nav>
     <main>
+      
       <header>
+        <section class="hero" >
         <div class="header__container">
           <div class="header__description">
             <h1>Prideful Pages</h1>
@@ -144,6 +149,8 @@
           </figure>
         </div>
       </header>
+    </section>
+
       <section id="highlights">
         <div class="container">
           <div class="row">
