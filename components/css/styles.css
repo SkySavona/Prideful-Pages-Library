@@ -1114,9 +1114,10 @@ ul {
   }
 
   .logo {
+    width: 40px;
+  }
+  .footer__logo {
     width: 50px;
-    height: 90px;
-    padding-bottom: 20px;
   }
 
   h1 {
